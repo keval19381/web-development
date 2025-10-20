@@ -1,32 +1,7 @@
 // Video Portfolio Implementation
 document.addEventListener('DOMContentLoaded', function() {
-    // Video files in the portfolio folder
-    const videoFiles = [
-        "Advertisement.mp4",
-        "Basic Yet Effective.mp4",
-        "Before and After 2.mp4",
-        "Before and After.mp4",
-        "Devotional.mp4",
-        "Documentry.mp4",
-        "Gym_ Fitness Content.mp4",
-        "How 35 dollar edit looks like.mp4",
-        "Motivational.mp4",
-        "Outreach Videos .mp4",
-        "Podcast Edit.mp4",
-        "Podcast.mp4",
-        "Real Estate Pitch .mp4",
-        "Real Estate._",
-        "Restaurant 21.mp4",
-        "Sigma edits.mp4",
-        "Slow pace.mp4",
-        "Women Empowerment Reel.mp4",
-        "gym edit.mp4",
-        "motivation and self help.mp4",
-        "podcast clip edit (hindi).mp4",
-        "podcast clips.mp4",
-        "real estate coach.mp4",
-        "upgrading the content .mp4"
-    ];
+    // Video files in the portfolio folder - currently empty for future uploads
+    const videoFiles = [];
     
     const videoContainer = document.getElementById('video-portfolio');
     
@@ -113,5 +88,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // Observe all portfolio items
     document.querySelectorAll('.portfolio-item').forEach(item => {
         observer.observe(item);
+    });
+    
+    // Form submission handling
+    document.addEventListener('DOMContentLoaded', function() {
+        // Improved Form submission handling
+        const form = document.querySelector("form");
+        if (form) {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(form);
+                
+                // Send form data via FormSubmit
+                fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        // Show success toast message
+                        alert("✅ Thanks for reaching out! Your message has been sent successfully.");
+                        
+                        // Reset form
+                        form.reset();
+                        
+                        // Open WhatsApp after a short delay
+                        setTimeout(() => {
+                            window.open("https://wa.me/7977649205?text=Hello%20Keval,%20I%20just%20filled%20the%20contact%20form%20on%20World%20Edits!", "_blank");
+                        }, 1000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                    alert("❌ Oops! Something went wrong. Please try again later.");
+                });
+            });
+        }
     });
 });

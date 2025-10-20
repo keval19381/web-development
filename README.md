@@ -1,9 +1,9 @@
-# Keval Web Solutions
+# World Edits
 
 Modern and responsive web development portfolio website.
 
 ## Description
-This is a professional portfolio website for Keval Web Solutions, showcasing web development and design services with a modern, responsive design.
+This is a professional portfolio website for World Edits, showcasing web development and design services with a modern, responsive design.
 
 ## Tech Stack
 - HTML
@@ -11,7 +11,7 @@ This is a professional portfolio website for Keval Web Solutions, showcasing web
 - JavaScript
 
 ## Author
-Keval
+World Edits
 
 ## Live Demo
 [Live Demo Link](https://keval19381.github.io/web-development/)

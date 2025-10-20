@@ -12,6 +12,8 @@
     --dark-color: #333;
     --gray-color: #f5f5f5;
     --transition: all 0.3s ease;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -53,6 +55,8 @@ img {
     text-align: center;
     border: none;
     font-size: 1rem;
+    transform: scale(1);
+    box-shadow: var(--shadow);
 }
 
 .btn-primary {
@@ -64,7 +68,7 @@ img {
 
 .btn-primary:hover {
     background-color: #52e0c4;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 0 6px 20px rgba(100, 255, 218, 0.4);
 }
 
@@ -117,6 +121,11 @@ header {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.logo h2:hover {
+    transform: scale(1.05);
 }
 
 .logo span {
@@ -132,6 +141,13 @@ header {
     font-weight: 500;
     position: relative;
     padding: 5px 0;
+    transition: var(--transition);
+    transform: scale(1);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.05);
 }
 
 .nav-links a::after {
@@ -212,6 +228,11 @@ header {
     margin-bottom: 20px;
     font-size: 1.1rem;
     color: #555;
+    transition: var(--transition);
+}
+
+.about-text p:hover {
+    transform: translateX(5px);
 }
 
 .expertise {
@@ -226,19 +247,25 @@ header {
     padding: 20px;
     background-color: var(--light-color);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow);
     transition: var(--transition);
+    transform: translateY(0);
 }
 
 .expertise-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-hover);
 }
 
 .expertise-item i {
     font-size: 2rem;
     color: var(--accent-color);
     margin-bottom: 15px;
+    transition: var(--transition);
+}
+
+.expertise-item:hover i {
+    transform: scale(1.2) rotate(5deg);
 }
 
 .expertise-item h3 {
@@ -262,14 +289,15 @@ header {
     border-radius: 10px;
     padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow);
     transition: var(--transition);
     border: 1px solid #eee;
+    transform: translateY(0);
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-hover);
     border-color: var(--accent-color);
 }
 
@@ -283,11 +311,12 @@ header {
     justify-content: center;
     margin: 0 auto 20px;
     transition: var(--transition);
+    transform: scale(1);
 }
 
 .service-card:hover .service-icon {
     background-color: var(--accent-color);
-    transform: rotate(10deg);
+    transform: scale(1.1) rotate(10deg);
 }
 
 .service-icon i {
@@ -309,60 +338,6 @@ header {
     color: #666;
 }
 
-/* Portfolio Section */
-.portfolio {
-    padding: 100px 0;
-    background-color: var(--gray-color);
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-}
-
-.portfolio-item {
-    background-color: var(--light-color);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-    opacity: 0;
-    transform: translateY(20px);
-    position: relative;
-}
-
-.portfolio-item.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.portfolio-item:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.portfolio-video {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    background-color: var(--primary-color);
-}
-
-.portfolio-info {
-    padding: 25px;
-}
-
-.portfolio-info h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-.portfolio-info p {
-    color: #666;
-}
-
 /* Audio toggle icon */
 .audio-toggle {
     position: absolute;
@@ -380,6 +355,7 @@ header {
     z-index: 10;
     transition: var(--transition);
     font-size: 14px;
+    transform: scale(1);
 }
 
 .audio-toggle:hover {
@@ -410,9 +386,17 @@ header {
     background-color: var(--light-color);
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow);
     position: relative;
     border: 1px solid #eee;
+    transition: var(--transition);
+    transform: translateY(0);
+}
+
+.testimonial:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-color);
 }
 
 .testimonial::before {
@@ -432,6 +416,11 @@ header {
     color: #555;
     position: relative;
     z-index: 1;
+    transition: var(--transition);
+}
+
+.testimonial-content p:hover {
+    color: var(--primary-color);
 }
 
 .client-info {
@@ -477,6 +466,11 @@ header {
     align-items: center;
     gap: 15px;
     margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.contact-detail:hover {
+    transform: translateX(5px);
 }
 
 .contact-detail i {
@@ -500,12 +494,13 @@ header {
     background-color: var(--primary-color);
     color: var(--light-color);
     transition: var(--transition);
+    transform: scale(1);
 }
 
 .contact-social a:hover {
     background-color: var(--accent-color);
     color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.1);
 }
 
 .form-group {
@@ -521,6 +516,7 @@ header {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     transition: var(--transition);
+    transform: scale(1);
 }
 
 .form-group input:focus,
@@ -528,6 +524,7 @@ header {
     outline: none;
     border-color: var(--accent-color);
     box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
+    transform: scale(1.01);
 }
 
 /* Footer */
@@ -547,6 +544,11 @@ header {
 .footer-logo h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
+    transition: var(--transition);
+}
+
+.footer-logo h2:hover {
+    transform: scale(1.05);
 }
 
 .footer-logo span {
@@ -584,11 +586,13 @@ header {
 .footer-links a {
     color: #aaa;
     transition: var(--transition);
+    transform: translateX(0);
 }
 
 .footer-links a:hover {
     color: var(--accent-color);
     padding-left: 5px;
+    transform: translateX(5px);
 }
 
 .footer-contact p {
@@ -687,9 +691,7 @@ header {
         grid-template-columns: 1fr;
     }
     
-    .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
+
 }
 
 @media (max-width: 576px) {
@@ -710,15 +712,5 @@ header {
         padding: 25px 20px;
     }
     
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .portfolio-video {
-        height: 200px;
-    }
-    
-    .portfolio-info {
-        padding: 20px;
-    }
+
 }
